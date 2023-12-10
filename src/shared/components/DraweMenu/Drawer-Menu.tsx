@@ -4,21 +4,21 @@ import {
   Box, 
   Divider, 
   Drawer, 
-  Icon, 
-  ListItem, 
-  ListItemButton, 
-  ListItemIcon, 
-  ListItemText, 
+ 
+  List, 
   useMediaQuery, 
   useTheme 
 } from '@mui/material';
 import { useDrawerContext } from '../../contexts';
+import { ListItemLInk } from '../ListItemLInk';
 
 
 export const DraweMenu = ({ children }: any) => {
   const theme = useTheme();
   const smDowm = useMediaQuery(theme.breakpoints.down('sm'));
-  const {isDrawerOpen, toggleDrawerOpen  } = useDrawerContext();
+  const {isDrawerOpen, toggleDrawerOpen, drawerOptions  } = useDrawerContext();
+
+
    return (
     <>
       <Drawer
@@ -30,31 +30,24 @@ export const DraweMenu = ({ children }: any) => {
           <Box width="100%" height={theme.spacing(20)} display='flex' alignItems='center' justifyContent='center'>
             <Avatar sx={{ height: theme.spacing(12), width: theme.spacing(12) }} alt='avatar' src='https://avatars.githubusercontent.com/u/27393649?v=4' />
           </Box>
-            
           <Divider />
 
           <Box flex={1}>
-            <ListItem component="nav">
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon>home</Icon>
+            <List component="nav">
+              {drawerOptions.map((drawerOptions) => (
+                <ListItemLInk 
+                key={drawerOptions.path}
+                label={drawerOptions.label} 
+                icon={drawerOptions.icon} 
+                to={drawerOptions.path} 
+                onClick={smDowm ? toggleDrawerOpen : undefined}
+              
+              />
 
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItemButton>
+              ))}
+           
+            </List>
 
-            </ListItem>
-
-            <ListItem component="nav">
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon>shopping</Icon>
-
-                </ListItemIcon>
-                <ListItemText primary="produtos" />
-              </ListItemButton>
-
-            </ListItem>
           </Box>
 
         </Box>
