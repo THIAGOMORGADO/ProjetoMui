@@ -1,25 +1,30 @@
 
-import { 
-  Avatar, 
-  Box, 
-  Divider, 
-  Drawer, 
- 
-  List, 
-  useMediaQuery, 
-  useTheme 
+import {
+  Avatar,
+  Box,
+  Divider,
+  Drawer,
+
+  Icon,
+
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  useMediaQuery,
+  useTheme
 } from '@mui/material';
-import { useDrawerContext } from '../../contexts';
+import { useAppThemeContext, useDrawerContext } from '../../contexts';
 import { ListItemLInk } from '../ListItemLInk';
 
 
 export const DraweMenu = ({ children }: any) => {
   const theme = useTheme();
   const smDowm = useMediaQuery(theme.breakpoints.down('sm'));
-  const {isDrawerOpen, toggleDrawerOpen, drawerOptions  } = useDrawerContext();
+  const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
-
-   return (
+  return (
     <>
       <Drawer
         open={isDrawerOpen}
@@ -35,21 +40,35 @@ export const DraweMenu = ({ children }: any) => {
           <Box flex={1}>
             <List component="nav">
               {drawerOptions.map((drawerOptions) => (
-                <ListItemLInk 
-                key={drawerOptions.path}
-                label={drawerOptions.label} 
-                icon={drawerOptions.icon} 
-                to={drawerOptions.path} 
-                onClick={smDowm ? toggleDrawerOpen : undefined}
-              
-              />
+                <ListItemLInk
+                  key={drawerOptions.path}
+                  label={drawerOptions.label}
+                  icon={drawerOptions.icon}
+                  to={drawerOptions.path}
+                  onClick={smDowm ? toggleDrawerOpen : undefined}
+
+                />
 
               ))}
-           
+
             </List>
 
           </Box>
 
+          <Box >
+            <List component="nav">
+
+              <ListItemButton onClick={toggleTheme} >
+                <ListItemIcon>
+                  <Icon>dark_mode</Icon>
+                </ListItemIcon>
+                <ListItemText primary="Alterar tema" />
+              </ListItemButton>
+
+
+            </List>
+
+          </Box>
         </Box>
       </Drawer>
       <Box height={'100vh'} marginLeft={smDowm ? 0 : theme.spacing(

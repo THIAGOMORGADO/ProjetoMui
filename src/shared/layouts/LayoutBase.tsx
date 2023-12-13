@@ -20,7 +20,7 @@ export const LayoutBase: React.FC<ILayoutBaseProps> = ({ children, titulo, barra
 
   return(
      <Box height='100%' display="flex" flexDirection="column" gap={1}>
-      <Box padding={1} height={theme.spacing(smDowm ? 6 : mdDowm ? 8 : 12)} display="flex" alignItems="center" gap={1}>
+      <Box  padding={1} height={theme.spacing(smDowm ? 6 : mdDowm ? 8 : 12)} display="flex" alignItems="center" gap={1}>
        {
         smDowm && (
           <IconButton onClick={toggleDrawerOpen}>
