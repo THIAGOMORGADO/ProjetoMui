@@ -4,9 +4,9 @@ import { LayoutBase } from "../../shared/layouts"
 export const Dashboard = () => {
   return(
    <LayoutBase titulo="dashboard" barraDeFerramentas={(
-    <DetailsTools />
+    <DetailsTools showBtnSaveAndBack/>
    )}>
-     Ferr
+     
    </LayoutBase>
   );
 };

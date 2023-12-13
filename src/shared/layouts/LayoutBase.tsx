@@ -7,7 +7,7 @@ import { IAppProviderChildren, useDrawerContext } from '../contexts';
 
 interface ILayoutBaseProps  {
   titulo: string;
-  children: IAppProviderChildren;
+  children?: IAppProviderChildren;
   barraDeFerramentas?: ReactNode;
 }
 

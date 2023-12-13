@@ -1,71 +1,105 @@
 import { Box, Button, Divider, Icon, Paper, useTheme } from '@mui/material';
 import React from 'react';
 
+interface IDetailsToolsProps {
+  newText?: string,
+  showBtnNew?: boolean,
+  showBtnVoltar?: boolean,
+  showBtnDelete?: boolean,
+  showbtnSave?: boolean,
+  showBtnSaveAndBack?: boolean,
 
+  onClicksNewText?: () => void;
+  onClicksBack?: () => void;
+  onClicksdeleted?: () => void;
+  onClicksSave?: () => void;
+  onClicksSabeAndBack?: () => void;
 
-export const DetailsTools: React.FC = () => {
+}
+
+export const DetailsTools: React.FC<IDetailsToolsProps> = ({
+  newText = "Novo",
+
+  showBtnNew = true,
+  showbtnSave = true,
+  showBtnVoltar = true,
+  showBtnDelete = true,
+  showBtnSaveAndBack = false,
+
+  onClicksNewText,
+  onClicksBack,
+  onClicksSabeAndBack,
+  onClicksSave,
+  onClicksdeleted
+}) => {
   const theme = useTheme();
-  return(
-    <Box 
-      component={Paper} 
-      display="flex" 
+  return (
+    <Box
+      component={Paper}
+      display="flex"
       alignItems="center"
-      marginX={1} 
-      padding={1} 
-      paddingX={2} 
+      marginX={1}
+      padding={1}
+      paddingX={2}
       height={theme.spacing(5)}
       gap={1}
     >
-       <Button
+        {showBtnNew && (
+        <Button
           variant='outlined'
           color="primary"
           disableElevation
-          onClick={() => {}}
+          onClick={onClicksNewText}
           startIcon={<Icon>add</Icon>}
-        > 
-        Novo</Button>
+        >
+          {newText}</Button>
+      )}
+  
 
+      {showbtnSave && (
         <Button
           variant='contained'
           color="primary"
           disableElevation
-          onClick={() => {}}
+          onClick={onClicksSave}
           startIcon={<Icon>save</Icon>}
-        > 
-        Salvar</Button>
+        >
+          Salvar</Button>
+      )}
+
+      {showBtnSaveAndBack && (
         <Button
           variant='outlined'
           color="primary"
           disableElevation
-          onClick={() => {}}
+          onClick={onClicksSabeAndBack}
           startIcon={<Icon>save</Icon>}
-        > 
-        Salvar e voltar</Button>
+        >
+          Salvar e voltar</Button>
+      )}
+
+      {showBtnDelete && (
         <Button
           variant='outlined'
           color="primary"
           disableElevation
-          onClick={() => {}}
+          onClick={onClicksdeleted}
           startIcon={<Icon>delete</Icon>}
-        > 
-        Apagar</Button>
+        >
+          Apagar</Button>
+      )}
+      <Divider variant='middle' orientation='vertical' />
+      {showBtnVoltar && (
         <Button
           variant='outlined'
           color="primary"
           disableElevation
-          onClick={() => {}}
-          startIcon={<Icon>add</Icon>}
-        > 
-        Novo</Button>
-        <Divider variant='middle' orientation='vertical'/>
-        <Button
-          variant='outlined'
-          color="primary"
-          disableElevation
-          onClick={() => {}}
+          onClick={onClicksBack}
           startIcon={<Icon>arrow_back</Icon>}
-        > 
-        Voltar</Button>
+        >
+          Voltar</Button>
+      )}
+
     </Box>
   )
 }
