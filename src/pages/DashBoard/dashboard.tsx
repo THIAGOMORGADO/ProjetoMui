@@ -4,7 +4,7 @@ import { LayoutBase } from "../../shared/layouts"
 export const Dashboard = () => {
   return(
    <LayoutBase titulo="dashboard" barraDeFerramentas={(
-    <DetailsTools mostrarBotaoSalvarEFechar mostrarBotaoSalvarEFecharCarregando/>
+    <DetailsTools mostrarBotaoSalvarEFechar mostrarBotaoNovo mostrarBotaoSalvarEFecharCarregando/>
    )}>
      
    </LayoutBase>
