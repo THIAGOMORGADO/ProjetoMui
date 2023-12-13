@@ -4,6 +4,7 @@ import { IAppProviderChildren, useDrawerContext } from '../contexts';
 
 
 
+
 interface ILayoutBaseProps  {
   titulo: string;
   children: IAppProviderChildren;
@@ -37,7 +38,7 @@ export const LayoutBase: React.FC<ILayoutBaseProps> = ({ children, titulo, barra
        {
         barraDeFerramentas && (
           <Box>
-            {barraDeFerramentas}
+              {barraDeFerramentas}
           </Box>
         )
        }
