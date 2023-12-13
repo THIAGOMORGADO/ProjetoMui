@@ -7,7 +7,7 @@ interface IThemeContextData {
   toggleTheme: () => void;
 }
 
-interface IAppProviderChildren {
+export interface IAppProviderChildren {
   children: React.ReactNode
 }
 
