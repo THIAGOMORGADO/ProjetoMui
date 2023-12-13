@@ -1,7 +1,7 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 import React from 'react';
 
-interface IToolBarProps {
+interface IToolBarListProps {
   search: string,
   showInputSearch: boolean,
   OnChanger?: (newText: string) => void,
@@ -12,7 +12,7 @@ interface IToolBarProps {
 
 }
 
-export const ToolBar: React.FC<IToolBarProps> = ({
+export const ToolBarList: React.FC<IToolBarListProps> = ({
   search = '', 
   showInputSearch = false, 
   OnChanger,
@@ -56,7 +56,7 @@ export const ToolBar: React.FC<IToolBarProps> = ({
       )}
      </Box>
 
-     
+          
     </Box>
   );
 }
