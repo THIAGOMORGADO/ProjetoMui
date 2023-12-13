@@ -2,7 +2,7 @@ import { LayoutBase } from "../../shared/layouts"
 
 export const Dashboard = () => {
   return(
-   <LayoutBase titulo="DashBoard">
+   <LayoutBase titulo="dashboard" barraDeFerramentas={<>barra de ferramentas</>}>
 
    </LayoutBase>
   );
