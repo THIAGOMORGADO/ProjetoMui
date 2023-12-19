@@ -1,5 +1,6 @@
 import { Box, Button, Icon, Paper, TextField, useTheme } from '@mui/material';
 import React from 'react';
+import { Environment } from '../../environment';
 
 interface IToolBarListProps {
   search: string,
@@ -33,31 +34,31 @@ export const ToolBarList: React.FC<IToolBarListProps> = ({
       gap={1}
 
     >
-     {showInputSearch && (
-      <TextField 
-        size="small"
-        placeholder='Pesquisar...'
-        value={search}
-        onChange={(e) => OnChanger?.(e.target.value)}
-     />
-     )}
-     <Box flex={1} display="flex" justifyContent="end">
-      {(
-        ShowButton && (
-          <Button
-          variant='contained'
-          color="primary"
-          disableElevation
-          onClick={onCliCksNew}
-          endIcon={<Icon>add</Icon>}
-        > 
-        {NewBtnText}</Button>
-        )
+      {showInputSearch && (
+        <TextField 
+          size="small"
+          placeholder={Environment.INPUT_DE_BUSCA}
+          value={search}
+          onChange={(e) => OnChanger?.(e.target.value)}
+        />
       )}
-     </Box>
+      <Box flex={1} display="flex" justifyContent="end">
+        {(
+          ShowButton && (
+            <Button
+              variant='contained'
+              color="primary"
+              disableElevation
+              onClick={onCliCksNew}
+              endIcon={<Icon>add</Icon>}
+            > 
+              {NewBtnText}</Button>
+          )
+        )}
+      </Box>
 
           
     </Box>
   );
-}
+};
 
