@@ -1,0 +1,6 @@
+{
+    "pessoa": [
+        {"id": 1, "name": "thiago morgado", "online": true, "nivel": "superAdm"},
+        {"id": 2, "name": "fernando morgado", "online": false, "nivel": "user"}
+    ]
+}
